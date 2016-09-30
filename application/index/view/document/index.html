@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name="description" content="description of your site"/>
+    <meta name="author" content="author of the site"/>
+    <title>开发文档</title>
+    <link rel="stylesheet" href="{$Think.config.resouce.css}/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{$Think.config.resouce.css}/bootstrap-responsive.css"/>
+    <link rel="stylesheet" href="{$Think.config.resouce.css}/styles.css"/>
+    <script src="{$Think.config.resouce.js}/jquery.min.js"></script>
+    <script src="{$Think.config.resouce.js}/my.js"></script>
+    <script src="{$Think.config.resouce.js}/bootstrap.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+<!-- 顶部 -->
+<div class="top-menu">
+    <div class="container">
+    </div>
+</div>
+<!-- 顶部结束-->
+<!-- 菜单栏 -->
+{include file="common/header" /}
+<!-- 菜单栏结束-->
+<!-- 中心内容 -->
+<div class="container-page clearfix">
+    <div class="conteiner-left">
+        <h5 class="bt-blue">开发文档</h5>
+        <ul class="left-menu">
+            <li class="list1"><a href="#">平台介绍</a></li>
+            <li class="list2 noborder"><a href="#">技术文档</a></li>
+        </ul>
+    </div>
+    <div class="conteiner-right">
+        <h3><span>平台介绍</span></h3>
+        <ul class="application-classify clearfix border-bottom" style="margin-top: 10px;">
+            <li class="classify-all"><a href="#">开发者账号 </a><span>|</span></li>
+            <li><a href="#">发布应用</a><span>|</span></li>
+            <li><a href="#">文件包说明</a><span>|</span></li>
+            <li><a href="#">身份认证</a> <span>|</span></li>
+            <li><a href="#">开放接口</a> <span>|</span></li>
+            <li><a href="#">官方QQ群</a></li>
+        </ul>
+        <div class="qa-text">
+            <h4>1、如何注册成为开发者？</h4>
+            <p>如果您是第一次来到这里，希望在 Discuz! 开放平台发布应用，请点击这里注册成为开发者，并按照页面提示完成注册过程。如果您有 QQ 帐号，可以直接通过 QQ 帐号登录。</p>
+            <h4>2、如何注册成为开发者？</h4>
+            <p>如果您是第一次来到这里，希望在 Discuz! 开放平台发布应用，请点击这里注册成为开发者，并按照页面提示完成注册过程。如果您有 QQ 帐号，可以直接通过 QQ 帐号登录。</p>
+        </div>
+
+        <div style="width: 100%; height: 50px; "></div>
+    </div>
+</div>
+<!-- 中心内容结束-->
+<!-- 页脚 -->
+{include file="common/footer" /}
+<!-- 页脚结束 -->
+<!-- Modal -->
+<div class="modal fade myapplication-type" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">选择您要创建的应用类型</h4>
+            </div>
+            <div class="modal-body application-modal-body">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-4">
+                        <h5><a href="/index/myapp/addTemplate/type/0">插件</a></h5>
+                        <p>为社区及 Discuz! 微社区提供各种增强功能的应用</p>
+                        <ul>
+                            <li>基准目录: /source/plugin/</li>
+                            <li>位于基准目录的子目录“插件标识/”下的所有文件</li>
+                            <li>只需提供简体 GBK 编码的安装 XML 文件，平台会自动生成其他编码的安装 XML 文件</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-sm-4">
+                        <h5><a href="/index/myapp/addTemplate/type/1">模板</a></h5>
+                        <p>为社区提供各种模板界面的应用</p>
+                        <ul>
+                            <li>基准目录: /template/</li>
+                            <li>位于基准目录的子目录“模板标识/”下的所有文件</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-sm-4">
+                        <h5><a href="/index/myapp/addTemplate/type/2">扩展</a></h5>
+                        <p>为社区提供高级扩展功能的应用</p>
+                        <ul>
+                            <li>基准目录: /</li>
+                            <li>位于基准目录下的所有扩展文件</li>
+                            <li>不能包含其他应用类型的基准目录</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<!--  <script src="{$Think.config.resouce.js}/d3-setup.js"></script><script>protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://'; address = protocol + window.location.host + window.location.pathname + '/ws'; socket = new WebSocket(address);
+socket.onmessage = function(msg) { msg.data == 'reload' && window.location.reload() }</script> -->
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="description" content="description of your site" />
+    <meta name="author" content="author of the site" />
+    <title>LvyeCms!开放平台</title>
+    <link rel="stylesheet" href="{$Think.config.resouce.css}bootstrap.css" />
+    <link rel="stylesheet" href="{$Think.config.resouce.css}bootstrap.min.css" />
+    <link rel="stylesheet" href="{$Think.config.resouce.css}bootstrap-responsive.css" />
+    <!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" />-->
+    <link rel="stylesheet" href="{$Think.config.resouce.css}styles.css" />
+    <link rel="stylesheet" href="{$Think.config.resouce.css}toastr.css" />
+    <link rel="stylesheet" href="{$Think.config.resouce.css}fullcalendar.css" />
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+     <style type="text/css">
+    .versions
+     {
+    
+       margin-left:400px; 
+      }
+      a{
+        text-decoration: none;
+      }
+      .create
+      {
+       
+       float: right;
+       margin-top:20px; 
+       margin-right: 500px;
+       font-size: 8px;
+
+        
+
+    
+       }
+     </style>
+
+    <script src="{$Think.config.resouce.js}jquery-1.8.3.min.js" ></script>
+    <script src="{$Think.config.resouce.js}bootstrap.js"></script>
+    <script src="{$Think.config.resouce.js}bootstrap.min.js"></script>
+    <script src="{$Think.config.resouce.js}jquery.knob.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="{$Think.config.resouce.js}jquery.sparkline.min.js"></script>
+    <script src="{$Think.config.resouce.js}toastr.js"></script>
+    <script src="{$Think.config.resouce.js}jquery.tablesorter.min.js"></script>
+    <script src="{$Think.config.resouce.js}jquery.peity.min.js"></script>
+    <script src="{$Think.config.resouce.js}fullcalendar.min.js"></script>
+    <script src="{$Think.config.resouce.js}gcal.js"></script>
+    <script src="{$Think.config.resouce.js}setup.js"></script>
+
+    <!--layer-->
+    <script src="{$Think.config.resouce.js}layer/layer.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+<div id="in-nav">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <ul class="pull-right">
+                    <li><a href="#">Link1</a></li>
+                    <li><a href="#">Link2</a></li>
+                    <li><a href="#">Link3</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul><a id="logo" href="index.html">
+                <h4>My<strong>Admin</strong></h4></a>
+            </div>
+        </div>
+    </div>
+</div>
+{include file="common/header" /}
+
+<!-- 添加版本管理 -->
+<div class="versions">
+    <a href="" style="color:#444444">全部版本</a>|&nbsp;
+    <a href="" style="color:#6CB3E7">分支版本</a>|&nbsp;
+    <a href="{$Think.config.web_root}/index/myapp/addAddon" style="color:#008000">扩展组件</a>|&nbsp;
+    <a href="" style="color:blue">下载资料&nbsp;</a>
+</div>
+
+
+  <div class="sidebarr">
+    <ul class="create">
+      <a href="javascript:;" id="inputapp">您还未发布第一个应用，现在发布自己第一个应用啊<a>
+    </ul>
+   </div> 
+
+
+  <div class="page">
+    <div class="page-container">
+        <div class="container">
+            <div class="row">
+                <div class="span3">
+                    <div class="sidebar">
+                        <ul class="col-nav span3">
+                            <h4>{$info.name}</h4>
+                            <h6>{$info.identification}</h6>
+                          
+                            <a href="/index/myapp">返回应用列表 «</a>
+                            <li><a href="#"> <i class="pull-right icon-cog"></i>我的应用</a></li>
+                            <li><a href="#"> <i class="pull-right icon-cog"></i>说明文档</a></li>
+                            <li><a href="#"> <i class="pull-right icon-cog"></i>用户服务</a></li>
+                            <li><a href="#"> <i class="pull-right icon-cog"></i>举报盗版</a></li>
+                            <li><a href="javascript:;" id="inputapp"> <i class="pull-right icon-cog"></i>发布应用</a></li>
+                        </ul>
+
+                </div>
+                <div class="span9"><!--应用名称	状态	安装总数	购买总数	应用总数: 3-->
+                    <div class="item">
+
+                    </div>
+                </div>
+            </div>
+        </div><script type="text/javascript">
+        (function() {
+            var delay;
+
+            $($(".item")[0]).hide();
+
+            delay = function(ms, func) {
+                return setTimeout(func, ms);
+            };
+
+            delay(500, function() {
+                return $($(".item")[0]).slideDown("slow");
+            });
+
+        }).call(this);
+    </script>
+    </div>
+</div>
+{include file="common/footer" /}
+</body>
+
+<!--alert windwo for select -->
+<script>
+    $(function () {
+
+    })
+</script>
+
+<script src="{$Think.config.resouce.js}d3-setup.js"></script><script>protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://'; address = protocol + window.location.host + window.location.pathname + '/ws'; socket = new WebSocket(address);
+socket.onmessage = function(msg) { msg.data == 'reload' && window.location.reload() }</script>
+
+<script src="/public/static/layer/layer.js"></script>
+<script src="/public/static/layer/skin/layer.css"></script>
+<style>
+    #input-box{
+
+    }
+    #input-box #item_1{
+        width:33%;
+        float: left;
+    }
+    #input-box #item_2{
+        width:33%;
+        float: left;
+    }
+    #input-box #item_3{
+        width:33%;
+        float: left;
+    }
+    .apptype {
+        overflow: hidden !important;
+        margin: 0 auto;
+        padding: 30px 0;
+        width: 930px;
+    }
+    .apptype dl {
+        margin-left: -1px;
+        padding: 20px 40px;
+        width: 230px;
+        height: 220px;
+        border-left: 1px solid #DDD;
+    }
+    .z{
+        float: left;
+    }
+</style>
+<script>
+    $(function () {
+        $(".sidebar a:last").click(function () {
+            var str = "<div id='input-box'><div class=\"bm_c apptype cl\"><dl class=\"z\"> <dt><button class=\"pn pnb\" onclick="location.href=location.origin+"/index/Myapp/addAddon?type=0"'\"><strong>插件</strong></button></dt><dd class=\"d\">为社区及 LvyeCms! 微社区提供各种增强功能的应用</dd><dd class=\"c xg1\"><ul><li>基准目录: /source/plugin/</li><li>位于基准目录的子目录“<u>插件标识</u>/”下的所有文件</li><li>只需提供简体 GBK 编码的安装 XML 文件，平台会自动生成其他编码的安装 XML 文件</li></ul></dd></dl><dl class=\"z\"><dt><button class=\"pn pnb\" onclick=\"location.href='addTemplate?type=1'\"><strong>模板</strong></button></dt><dd class=\"d\">为社区提供各种模板界面的应用</dd><dd class=\"c xg1\"><ul><li>基准目录: /template/</li><li>位于基准目录的子目录“<u>模板标识</u>/”下的所有文件</li></ul></dd></dl><dl class=\"z\"><dt><button class=\"pn pnb\" onclick=\"location.href='addTemplate?type=1'\"><strong>扩展</strong></button></dt><dd class=\"d\">为社区提供高级扩展功能的应用</dd><dd class=\"c xg1\"><ul><li>基准目录: /</li><li>位于基准目录下的所有扩展文件</li><li>不能包含其他应用类型的基准目录</li></ul></dd> </dl></div></div>";
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 1,
+                area: ['970px', '380px'],
+                skin: 'layui-layer-rim',
+                shadeClose: false,
+                skin: '',
+                content: str
+            });
+        })
+    })
+
+    $(function () {
+        $(".sidebarr").click(function () {
+            var str = "<div id='input-box'><div class=\"bm_c apptype cl\"><dl class=\"z\"> <dt><button class=\"pn pnb\" onclick=\"location.href='addAddon?type=0'\"><strong>插件</strong></button></dt><dd class=\"d\">为社区及 LvyeCms! 微社区提供各种增强功能的应用</dd><dd class=\"c xg1\"><ul><li>基准目录: /source/plugin/</li><li>位于基准目录的子目录“<u>插件标识</u>/”下的所有文件</li><li>只需提供简体 GBK 编码的安装 XML 文件，平台会自动生成其他编码的安装 XML 文件</li></ul></dd></dl><dl class=\"z\"><dt><button class=\"pn pnb\" onclick=\"location.href='addTemplate?type=1'\"><strong>模板</strong></button></dt><dd class=\"d\">为社区提供各种模板界面的应用</dd><dd class=\"c xg1\"><ul><li>基准目录: /template/</li><li>位于基准目录的子目录“<u>模板标识</u>/”下的所有文件</li></ul></dd></dl><dl class=\"z\"><dt><button class=\"pn pnb\" onclick=\"location.href='addTemplate?type=1'\"><strong>扩展</strong></button></dt><dd class=\"d\">为社区提供高级扩展功能的应用</dd><dd class=\"c xg1\"><ul><li>基准目录: /</li><li>位于基准目录下的所有扩展文件</li><li>不能包含其他应用类型的基准目录</li></ul></dd> </dl></div></div>";
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 1,
+                area: ['970px', '380px'],
+                skin: 'layui-layer-rim',
+                shadeClose: false,
+                skin: '',
+                content: str
+            });
+        })
+    })
+</script>
+</html>
