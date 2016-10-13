@@ -8,6 +8,7 @@
 namespace app\index\controller;
 use think\Request;
 use think\Db;
+use app\index\model\MyappModel;
 class Myapp extends Base{
     public function index(){
         $data = Db::table("app_addoon")->select();/*dump($data);*/
@@ -29,84 +30,56 @@ class Myapp extends Base{
     }
 
     public function addAddon(){
-        if (!empty(Request::instance()->post())){
-            $identification = Request::instance()->post("identification");
-            $name = Request::instance()->post("name");
-            $thumb = $this->upload();
-            $description = Request::instance()->post("description");
-            $copyright = Request::instance()->post("copyright");
-            $type = Request::instance()->post("type");
-            $addtime =time();
-            $data = [
-                'identification'=>$identification,
-                'name'=>$name,
-                'description'=>$description,
-                'thumb'=>$thumb,
-                'copyright'=>$copyright,
-                'type'=>$type,
-                'addtime'=>$addtime
-            ];
-            Db::table("app_addoon")->insert($data);
-        }else{
-            return $this->view->fetch("addAddon");
-        }
-    }
-
-
-    public function addTemplate(){
-
-         if(!empty($_FILES))
-         {
-            $file = request()->file('previewnew');
-            //便利数组
-            foreach($file as $k=>$v)
-            {
-              $file=$v;
-              $filepath = ROOT_PATH . 'public' . DS . 'uploads';
-              // 移动到框架应用根目录/public/uploads/ 目录下
-              $info = $file->move($filepath);
-             if($info){
-                $filename= $filepath ."/".$info->getFilename();
-
-              }else{
-                echo "上传失败";
-              }
-  
+            $data  = "";
+            if (Request::instance()->isPost()){
+                //var_dump(Request::instance()->post());
+                $myappmodel = new MyappModel();
+                $data = Request::instance()->post();
+                if (!empty(Request::instance()->file())){
+                    $images = Request::instance()->file();
+                    $pre_thumb = $this->upload('pre_thumb');
+                    $thumb = $this->upload('thumbs');
+                }
+                $data['pre_thumb'] = $pre_thumb;
+                $data['thumbs'] = serialize($thumb);
+                $data['dateline'] = time();
             }
-            //添加数据入库
-             if(!empty($_POST))
-             {
-              $data=$_POST;
-              $data['previewnew']=$filename;
-              $re=Db::table('app_addtemplate')->insert($data);
-              if($re){
-                echo "success";
-              }else{
-                echo "failure";
-              }
-             }          
-             
-         }
-
-         //获取type类型，确定是插件，模板还是后台
-         $appid = Request::instance()->param("type");
-         $this->assign("appid",$appid);
-         return $this->view->fetch("addTemplate");
+            var_dump($data);
+            return $this->view->fetch("addAddon");
     }
-    private function upload(){
-            $file = request()->file('thumb');
-            $filepath = ROOT_PATH . 'public' . DS . 'uploads';
-            // 移动到框架应用根目录/public/uploads/ 目录下
-            $info = $file->move($filepath);
-            if($info){
-                // 成功上传后 获取上传信息
-                // 输出 jpg
-                //echo $info->getExtension();
-                // 输出 42a79759f284b767dfcb2a0197904287.jpg
-                return $filepath ."/".$info->getFilename();
+    private function upload($image_t){
+            $files = request()->file($image_t);
+            if (is_array($files)){
+                $thumb = "";
+                foreach($files as $k=>$file){
+                    // 移动到框架应用根目录/public/uploads/ 目录下
+                    $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+                    if($info){
+                        // 成功上传后 获取上传信息
+                        // 输出 jpg
+                        //echo $info->getExtension();
+                        // 输出 42a79759f284b767dfcb2a0197904287.jpg
+                        $thumb[$k] =  $info->getFilename();
+                    }else{
+                        // 上传失败获取错误信息
+                        echo $file->getError();
+                    }
+                }
+                return $thumb;
             }else{
-                // 上传失败获取错误信息
-                return $file->getError();
+                $filepath = ROOT_PATH . 'public' . DS . 'uploads';
+                // 移动到框架应用根目录/public/uploads/ 目录下
+                $info = $files->move($filepath);
+                if($info){
+                    // 成功上传后 获取上传信息
+                    // 输出 jpg
+                    //echo $info->getExtension();
+                    // 输出 42a79759f284b767dfcb2a0197904287.jpg
+                    return $filepath ."/".$info->getFilename();
+                }else{
+                    // 上传失败获取错误信息
+                    return $files->getError();
+                }
             }
     }
 

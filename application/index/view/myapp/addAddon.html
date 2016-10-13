@@ -24,6 +24,16 @@
     <script src="{$Think.config.resouce.js}fullcalendar.min.js"></script>
     <script src="{$Think.config.resouce.js}gcal.js"></script>
     <script src="{$Think.config.resouce.js}setup.js"></script>
+    <link rel="stylesheet" href="{$Think.config.resouce.js}/kindeditor/themes/default/default.css" />
+    <link rel="stylesheet" href="{$Think.config.resouce.js}/kindeditor/themes/simple/simple.css" />
+    <script charset="utf-8" src="{$Think.config.resouce.js}/kindeditor/kindeditor-min.js"></script>
+    <script charset="utf-8" src="{$Think.config.resouce.js}/kindeditor/lang/zh_CN.js"></script>
+    <script>
+        KindEditor.ready(function(K) {
+            window.editor = K.create('#editor_id');
+        });
+
+    </script>
     <style type="text/css">
     /* 流程 */
 .step { margin-left: -15px; }
@@ -58,7 +68,7 @@
                     </ul>
                 </div>
                 <div class="span6">
-                    <form class="form-horizontal" action="addAddon" method="post" enctype="multipart/form-data" />
+                    <form class="form-horizontal" action="/index/myapp/addAddon/1" method="post" enctype="multipart/form-data" />
                     <div class="control-group">
                         <label for="identifying" class="control-label">插件标识 </label>
                         <div class="controls">
@@ -72,25 +82,45 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label for="logo" class="control-label">插件logo </label>
+                        <label for="logo" class="control-label">模板预览图 </label>
                         <div class="controls">
-                            <input id="logo" type="file" name="thumb" placeholder="logo" />
+                            <input id="logo" type="file" name="pre_thumb" placeholder="logo" />
                         </div>
                     </div>
                     <div class="control-group">
-                        <label for="description" class="control-label">应用介绍</label>
-                        <div class="controls">
-                            <textarea id="description"  class="form-control" cols="3" style="width:600px;" rows="10" name ="description"></textarea>
+                        <label for="text" class="control-label">应用介绍</label>
+                        <div class="controls" id="text">
+                            <div class="tedt" style="width:650px">
+                          <textarea id="editor_id" name="content" style="width:700px;height:300px;"></textarea>
+                            </div>
                         </div>
                     </div>
                     <div class="control-group">
-                        <label for="description" class="control-label">正版保护</label>
+                        <label for="addonname" class="control-label">插件截图</label>
                         <div class="controls">
+                            <input id="thumbs" type="file" name="thumbs[]" />
+                        </div>
+                        <div class="controls">
+                            <input id="thumbs" type="file" name="thumbs[]" />
+                        </div>
+                        <div class="controls">
+                            <input id="thumbs" type="file" name="thumbs[]" />
+                        </div>
+                        <div class="controls">
+                            <input id="thumbs" type="file" name="thumbs[]" />
+                        </div>
+                        <div class="controls">
+                            <input id="thumbs" type="file" name="thumbs[]" />
+                        </div>
+
+                    </div>
+
+                    <div class="control-group">
+                        <label for="redio" class="control-label">正版保护</label>
+                        <div class="controls" id="redio">
                             <label class="radio-inline">
-                                <input type="radio" name="copyright" id="inlineRadio1" value="1"> 是
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="copyright" id="inlineRadio2" value="0"> 否
+                                <input type="radio" name="copyright" id="inlineRadio1" value="1" style="vertical-align:middle; margin-top:-2px; margin-bottom:1px;"> 是
+                                <input type="radio" name="copyright" id="inlineRadio2" value="0" style="vertical-align:middle; margin-top:-2px; margin-bottom:1px;"> 否
                             </label>
                         </div>
                     </div>

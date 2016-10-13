@@ -3,5 +3,5 @@
 define('APP_PATH', 'application/');
 define("SITE_URL","http://".$_SERVER['HTTP_HOST']);
 // 加载框架引导文件     
-//1
+
 require   'thinkphp/start.php';

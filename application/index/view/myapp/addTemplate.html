@@ -66,13 +66,13 @@
     <form method="post" action="/index/myapp/addTemplate" enctype="multipart/form-data">
         <table class="tfm mbm">
             <tbody>
-            <tr><?php if($appid==0): ?>
+            <tr>
                 <th>插件标识</th>
-                <?php elseif($appid==1): ?>
+
                 <th>模板标识</th>
-                <?php else: ?>
+
                 <th>添加扩展标识</th>
-                <?php endif;?>
+
                 <td><input type="text" name="remark" class="px1" value=""></td>
                 <td class="xg1">
                     请输入新模板的标识，模板的标识将对应 template/ 目录下的目录名
@@ -80,24 +80,24 @@
                 </td>
             </tr>
             <tr>
-             <?php if($appid==0): ?>
+
                 <th>插件名称</th>
-            <?php elseif($appid==1):?>
+
                 <th>模板名称</th>
-            <?php else:?>
+
                 <th>扩展名称</th>
-            <?php endif;?>
+
                 <td><input type="text" name="name" class="px1"></td>
                 <td class="xg1">请填写模板的名称，名称中不要包含版本号，最多 18 个字节</td>
             </tr>
             <tr>
-            <?php if($appid==0):?>
+
                 <th>插件预览图</th>
-            <?php elseif($appid==1):?>
+
                 <th>模板预览图</th>
-            <?php else: ?>
+
                 <th>扩展预览图</th>
-             <?php endif;?>
+
                 <td><input type="file" name="logo" class="pf" size="40"></td>
                 <td class="xg1">上传模板的预览图片，请用形象的图片展示出您模板的效果，可直接上传您模板目录中的 preview.jpg 文件<br>图片大小: 220x240<br>图片格式: JPG
                 </td>
