@@ -10,8 +10,8 @@ namespace app\index\model;
 
 use think\Model;
 
-class MyappModel extends Model{
-    protected $table = "app_addon";
+class VersionModel extends Model{
+    protected $table = "app_versionmanagement";
     protected $createTime = 'dateline';
     //自定义初始化
     protected function initialize()

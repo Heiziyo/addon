@@ -83,7 +83,7 @@
             <tbody>
             {volist name="data" id="vo"}
             <tr>
-                <td><img src="{$Think.config.resouce.images}/pic.png"></td>
+                <td><img src="/public/uploads/{$vo.pre_thumb}" width="42" height="42"></td>
                 <td>{$vo.name}<br>
                     <img src="{$Think.config.resouce.images}/xing_02.png">
                 </td>
@@ -97,7 +97,7 @@
                 <td>-</td>
                 <td>-</td>             
                 <td>
-             <a href="/index/myapp/securitycheck/id/{$vo.id}">版本管理</a><a href="#">应用信息</a></td>
+             <a href="/index/myapp/versionManagement/id/{$vo.id}">版本管理</a>&nbsp;&nbsp;<a href="#">应用信息</a></td>
          </tr>
          {/volist}
             
