@@ -67,6 +67,7 @@
 	</div>
 	<div class="conteiner-right">
 		<form method="post" action="/index/myapp/createVersion/id/{$info.id}" enctype="multipart/form-data">
+			<input type="hidden" name="pid" value="{$pid}">
 			<div class="bm_c">
 				<ul class="step cl">
 					<li><em>1</em>
@@ -100,7 +101,7 @@
 						<td>
 							{volist name="version" id="vo"}
 							<label class="lb x4"><input
-								type="checkbox" name="compatiblenew[]" class="pc" value="{$vo.id}"><span
+								type="checkbox" name="compatiblenew" class="pc" value="{$vo.id}"><span
 								class="cv">{$vo.versionname}</span>
 							</label>
 							{/volist}

@@ -9,6 +9,8 @@ namespace app\index\controller;
 use think\Request;
 use think\Db;
 use app\index\model\MyappModel;
+use app\index\model\VersionModel;
+use app\common\controller\base;
 class Myapp extends Base{
     public function index(){
         $data = Db::table("app_addon")->select();/*dump($data);*/
@@ -62,7 +64,23 @@ class Myapp extends Base{
      */
     public function createVersion(){
         if (Request::instance()->isPost()){
-            var_dump(Request::instance()->post());
+            if (Request::instance()->post()){
+                if (Request::instance()->file()){
+                    $data = Request::instance()->post();
+                    $filepath = $this->fileUp('filenamenew');
+                    $data['filenamenew'] = $filepath;
+                    $data['charsetnew'] = serialize($data['charsetnew']);
+                    if (!empty($data)){
+                        $version = new VersionModel();
+                        $result = $version->addData($data);
+                        if ($result){
+                            $this->success("添加成功");
+                        }
+                    }
+                }else{
+                    $this->error("请上传安装包");
+                }
+            }
         }else{
             $id = Request::instance()->param("id");
             if(empty($id)){
@@ -74,10 +92,11 @@ class Myapp extends Base{
             $version = Db::table("app_version")->select();
             $this->assign('info',$info);
             $this->assign('version',$version);
+            $this->assign('pid',$id);
             return $this->view->fetch("createVersion");
         }
     }
-    //上传
+    //图片上传
     /*
      * parm  string $image_t  图片标识
      *
@@ -106,7 +125,19 @@ class Myapp extends Base{
                 }
             }
     }
-
+    /*
+     * 文件上传
+     */
+    public function fileUp($filename){
+        $files = request()->file($filename);
+        $filepath = ROOT_PATH . 'public' . DS . 'filepubic';
+        $info = $files->move($filepath);
+        if($info){
+            return $info->getSaveName();
+        }else{
+            return $files->getError();
+        }
+    }
 
     
 }

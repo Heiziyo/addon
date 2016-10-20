@@ -1,8 +1,0 @@
-{
-  "require": {
-    "aliyuncs/oss-sdk-php": "~2.0"
-  },
-  "config": {
-    "secure-http": false
-  }
-}
