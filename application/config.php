@@ -233,6 +233,7 @@ return [
         'admin_js'=> SITE_URL."/public/static/admin/",
         'admin_img'=> SITE_URL."/public/static/admin/",
     ],
+
     "web_root" => "http://".$_SERVER['SERVER_NAME'],
 
 

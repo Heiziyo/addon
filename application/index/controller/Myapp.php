@@ -10,7 +10,7 @@ use think\Request;
 use think\Db;
 use app\index\model\MyappModel;
 use app\index\model\VersionModel;
-use app\common\controller\base;
+use app\common\controller\Base;
 class Myapp extends Base{
     public function index(){
         $data = Db::table("app_addon")->select();/*dump($data);*/
@@ -26,18 +26,27 @@ class Myapp extends Base{
                 if (!empty(Request::instance()->file())){
                     $pre_thumb = $this->upload('pre_thumb');
                     $thumb = $this->upload('thumbs');
+                }else{
+                    $this->error("请添加上传文件");
                 }
                 $data['pre_thumb'] = $pre_thumb;
                 $data['thumbs'] = serialize($thumb);
                 $data['dateline'] = time();
-            }
-            if (!empty($data)){
-                $result = $myappmodel->addData($data);
-                if ($result){
-                    $this->success("添加成功");
+                $data['type'] =  $data['typs'];
+                unset($data['typs']);
+                if (!empty($data)){
+                    $result = $myappmodel->addData($data);
+                    if ($result){
+                        $this->success("添加成功","index");
+                    }else{
+                        $this->error("添加失败");
+                    }
                 }
+            }else{
+                $type = Request::instance()->param("type");
+                $this->assign("typeid",$type);
+                return $this->view->fetch("addAddon");
             }
-            return $this->view->fetch("addAddon");
     }
 
     /*
