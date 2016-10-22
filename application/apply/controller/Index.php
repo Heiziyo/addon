@@ -16,15 +16,4 @@ class Index extends Base{
 
         return $this->view->fetch('index');
     }
-
-
-    public function addPlug(){
-
-
-
-
-
-
-        return $this->view->fetch('addPlug');
-    }
 }
