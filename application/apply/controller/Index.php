@@ -7,12 +7,14 @@
  */
 namespace app\apply\controller;
 use app\common\controller\Base;
+use think\Db;
+use OSS\OssClient;
 class Index extends Base{
 
 
     public function index(){
-
-
+        $data = Db::table("app_addon")->select();/*dump($data);*/
+        $this->assign('data',$data);
 
         return $this->view->fetch('index');
     }

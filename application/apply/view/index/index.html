@@ -8,10 +8,11 @@
 	<title>我的应用</title>
 	<link rel="stylesheet" href="{$Think.config.resouce.css}/bootstrap.min.css"/>
 	<link rel="stylesheet" href="{$Think.config.resouce.css}/bootstrap-responsive.css"/>
+	<!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" />-->
 	<link rel="stylesheet" href="{$Think.config.resouce.css}/styles.css"/>
+	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
 	<script src="{$Think.config.resouce.js}/jquery.min.js"></script>
 	<script src="{$Think.config.resouce.js}/bootstrap.min.js"></script>
-	<script src="{$Think.config.resouce.js}/my.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body>
@@ -21,39 +22,95 @@
 	</div>
 </div>
 <!-- 顶部结束-->
+
 <!-- 菜单栏 -->
+
 {include file="common/header" /}
 <!-- 菜单栏结束-->
+
 <!-- 中心内容 -->
 <div class="container-page clearfix">
 	<div class="conteiner-left">
 		<h5>应用管理</h5>
 		<ul class="left-menu">
-			<li class="list1"><a href="#">我的应用</a></li>
+			<li class="list1"><a href="/index/myapp/index">我的应用</a></li>
 			<li class="list2"><a href="#">说明文档</a></li>
-			<li class="list3 tongji"><a href="#">统计记录</a>
-				<span class="right-icon"></span>
-				<ul class="tongji-submenu">
-					<li><a href="#">安装记录</a></li>
-					<li><a href="#">购买记录</a></li>
-					<li><a href="#">捐助记录</a></li>
-					<li class="noborder"><a href="#">浏览记录</a></li>
-				</ul>
-			</li>
+			<li class="list3"><a href="#">统计记录</a></li>
 			<li class="list4"><a href="#">用户服务</a></li>
 			<li class="list5"><a href="#">举报盗版</a></li>
-			<li class="list6 noborder" data-toggle="modal" data-target="#myModal"><a href="#">发布应用</a></li>
+			<li class="list6" data-toggle="modal" data-target="#myModal"><a href="#">发布应用</a></li>
 		</ul>
 	</div>
+	<div class="conteiner-right">
+		<ul class="right-notice clearfix">
+			<li><a href="#">【通告】 通过优惠券开启 <span>2016-07-05 12:12</span></a></li>
+			<li><a href="#">【通告】 通过优惠券开启 <span>2016-07-05 12:12</span></a></li>
+			<li><a href="#">【通告】 通过优惠券开启 <span>2016-07-05 12:12</span></a></li>
+		</ul>
+		<ul class="application-classify clearfix">
+			<li class="classify-all"><a href="/index/myapp/index/">全部 <span>|</span></a></li>
+			<li><a href="/index/myapp/index/type/0">插件</a><span>|</span></li>
+			<li><a href="/index/myapp/index/type/1">模板</a><span>|</span></li>
+			<li><a href="/index/myapp/index/type/2">扩展</a> <span>|</span></li>
+			<li><a href="#">免费应用</a><span>|</span></li>
+			<li><a href="#">收费应用</a><span>|</span></li>
+			<li class="classify-edit"><a href="#">[ 编辑类别 ]</a></li>
+		</ul>
+		<form class="navbar-form serarch-from" role="search"   action="/index/myapp/index"  method="post">
+			<input type="checkbox" class="search-checkbox "><a href="#" class="search-desc red">已上架</a>
+			<input type="checkbox" class="search-checkbox"><a href="#" class="search-desc">已下架</a>
+			<input type="checkbox" class="search-checkbox"><a href="#" class="search-desc green">新添加</a>
+			<input type="checkbox" class="search-checkbox"><a href="#" class="search-desc">已被锁定</a>
+			<input type="checkbox" class="search-checkbox"><a href="#" class="search-desc">强制下架</a>
+			<input type="checkbox" class="search-checkbox"><a href="#" class="search-desc blue">审核中</a>
+			<input type="checkbox" class="search-checkbox"><a href="#" class="search-desc">回收站</a>
+			<div class="form-group index-search">
+				<input type="text" class="form-control" name="search">
+				<button type="submit" class="btn btn-default search-btn">搜索</button>
+			</div>
+		</form>
+		<table class="myapplication-table">
+			<thead>
+			<tr>
+				<th></th>
+				<th>应用名称</th>
+				<th>状态</th>
+				<th>安装总数</th>
+				<th>购买总数</th>
+				<th>应用总数<span>3</span></th>
+			</tr>
+			</thead>
+			<tbody>
+			{volist name="data" id="vo"}
+			<tr>
+				<td><img src="/public/uploads/{$vo.pre_thumb}" width="42" height="42"></td>
+				<td>{$vo.name}<br>
+					<img src="{$Think.config.resouce.images}/xing_02.png">
+				</td>
+				<?php if($vo['type']==0): ?>
 
+				<td>新添加插件</td>
+				<?php else:?>
 
+				<td>新添加应用</td>
+				<?php endif;?>
+				<td>-</td>
+				<td>-</td>
+				<td>
+					<a href="/apply/apps/versionManagement/id/{$vo.id}">版本管理</a>&nbsp;&nbsp;<a href="#">应用信息</a></td>
+			</tr>
+			{/volist}
 
-	<div style="width: 100%; height: 50px; "></div>
-</div>
+			</tbody>
+		</table>
+		<div style="width: 100%; height: 50px; "></div>
+	</div>
+
 </div>
 <!-- 中心内容结束-->
+
 <!-- 页脚 -->
-{include file="common/footer" /}
+{include file="common/footer"/}
 <!-- 页脚结束 -->
 <!-- Modal -->
 <div class="modal fade myapplication-type" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
