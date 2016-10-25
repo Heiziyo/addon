@@ -13,7 +13,7 @@ class Index extends Base{
 
 
     public function index(){
-        $data = Db::table("app_addon")->select();/*dump($data);*/
+        $data = Db::table("app_addon")->paginate(5);/*dump($data);*/
         $this->assign('data',$data);
 
         return $this->view->fetch('index');
