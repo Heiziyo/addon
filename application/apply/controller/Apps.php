@@ -12,6 +12,7 @@ use app\common\controller\Base;
 use think\Request;
 use think\Db;
 use app\apply\model\MyappModel;
+use app\apply\model\VersionModel;
 class Apps extends Base{
 
     protected function initialize()
