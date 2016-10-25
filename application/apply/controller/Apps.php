@@ -148,4 +148,17 @@ class Apps extends Base{
             }
         }
     }
+    /*
+    * 文件上传
+    */
+    public function fileUp($filename){
+        $files = request()->file($filename);
+        $filepath = ROOT_PATH . 'public' . DS . 'filepubic';
+        $info = $files->move($filepath);
+        if($info){
+            return $info->getSaveName();
+        }else{
+            return $files->getError();
+        }
+    }
 }
