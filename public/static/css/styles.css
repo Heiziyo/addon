@@ -137,3 +137,92 @@ ul li{ list-style-type: none;margin: 0; padding: 0; }
 .footer-center ul li{ float: left;}
 .footer-center ul li span{ color: #CCC; margin: 0 5px;}
 .footer-center ul li a{ color: #369;}
+
+/*注册页*/
+.register {
+  display: block;
+  width: 960px;
+  margin: 10px auto;
+  padding: 0 15px;
+  border: 1px solid #E4E8F1;
+  background: #FFF;
+  box-shadow: 0 2px 3px rgba(220, 220, 220, 0.5);
+  border-radius: 5px;
+}
+.bm_h {
+  height: 44px;
+  border-bottom: 1px solid #E4E8F1;
+  line-height: 41px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.bm_h .o {
+  float: right;
+  font-size: 12px;
+}
+.bm_h h2 {
+  display: inline-block;
+  border-bottom: 3px solid #E4E8F1;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Microsoft YaHei', 'Hiragino Sans GB', 'STHeiti', 'SimHei', sans-serif;
+  height: 33px;
+  margin-top: 0px;
+}
+.bm_c {
+  overflow: hidden;
+  padding: 10px 0;
+}
+.a_lg {
+  margin: 50px auto;
+  width: 550px;
+  min-height: 200px;
+}
+.a_lg dl {
+  padding-left: 85px;
+  font-size: 14px;
+}
+.a_lg dt {
+  position: absolute;
+  margin-left: -85px;
+  width: 80px;
+}
+.a_lg dt, .a_lg dd {
+  margin-bottom: 20px;
+}
+.a_lg .px {
+  margin-right: 10px;
+  width: 270px;
+  vertical-align: middle;
+  border-radius: 3px;
+}
+.a_lg dd span {
+  font-size: 12px;
+}
+.a_lg .d {
+  margin-top: -15px;
+  color: #999;
+  font-size: 12px;
+}
+label {
+  cursor: pointer;
+  font-weight: 400 !important;
+}
+.checkbox {
+  float: left;
+}
+.pnc {
+  border-color: #158DB6;
+  background-color: #06C;
+  background-position: 0 -48px;
+  color: #FFF !important;
+  box-shadow: 0 1px 0 #E5E5E5;
+  border-radius: 3px;
+}
+.change_img {
+  margin-top: px !important;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding-top: 10px;
+}
