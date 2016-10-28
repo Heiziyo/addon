@@ -18,14 +18,17 @@
     </div>
     <div class="bm_c">
         <div class="a_lg">
-            <form method="post" action="/apply/user/check">
+            <form method="post" action="/apply/user/doRegister">
                 <dl>
                     <dt>用户名:</dt>
-                    <dd><input type="text" name="keynew" id="keynew" class="px" required="required" size="30" maxlength="30"/></dd>
-                    <dd class="d">登录用户名，只能由字母和数字组成，最少 5 个字节，最多 30 个字节</dd>
+                    <dd><input type="text" name="name" id="keynew" class="px" required="required" size="30" maxlength="30"/></dd>
+                    <dd class="d">登录用户名，只能由字母和数字组成，最少 3 个字符</dd>
+                    <dt>密码:</dt>
+                    <dd><input type="text" name="password" id="emailnew" class="px" required="required" size="30"/></dd>
+                    <dd class="d">登录密码，最少 6 个字符</dd>
                     <dt>电子邮箱:</dt>
-                    <dd><input type="text" name="emailnew" id="emailnew" class="px" required="required" size="30"/></dd>
-                    <dd class="d">请确保邮箱地址的正确性，我们将把初始密码发送到此邮箱，以便您激活此帐号</dd>
+                    <dd><input type="text" name="email" id="emailnew" class="px" required="required" size="30"/></dd>
+                    <dd class="d">请确保邮箱地址的正确性，以便您激活此帐号</dd>
                     <dt>验证码:</dt>
                     <dd>
                         <input type="text" name="code" class="px" required="required" size="30" tabindex="1"/>
@@ -37,7 +40,7 @@
                         <label>
                         <input type="checkbox" name="agreement" id="agreement" value="yes" class="checkbox" required="required"/>
                             我同意接受
-                        <a href="http://open.discuz.net/?!agreement" target="_blank">《Discuz!开放平台开发者服务协议》</a>
+                        <a href="#">《LvyeCMS! 开放平台开发者服务协议》</a>
                         </label>
                     </dd>
                     <dd>
