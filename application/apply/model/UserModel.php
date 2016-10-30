@@ -23,13 +23,23 @@ class UserModel extends Model
     //检测用户名是否已注册
     public function userName($name)
     {
-        if (empty($name)){
+        if (empty($name)) {
             return false;
         }
-        $result = db('user')->field('fname')->where('fname',$name)->select();
-        if (!empty($result)){
+        $result = db('user')->field('fname')->where('fname', $name)->select();
+        if (!empty($result)) {
             return true;
         }
+    }
+
+    //添加注册用户
+    public function addUser($info)
+    {
+        if (empty($info)) {
+            return false;
+        }
+        $result = db('user')->insert($info);
+        return $result;
     }
 
 
