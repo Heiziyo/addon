@@ -10,7 +10,11 @@
         },
         "dist": {
             "type": "zip",
+<<<<<<< HEAD
             "url": "https://packagist.phpcomposer.com/files/Gregwar/Captcha/1240ab993ca713680573b2d4166900da5f758623.zip",
+=======
+            "url": "https://api.github.com/repos/Gregwar/Captcha/zipball/1240ab993ca713680573b2d4166900da5f758623",
+>>>>>>> origin/master
             "reference": "1240ab993ca713680573b2d4166900da5f758623",
             "shasum": ""
         },
@@ -48,6 +52,7 @@
             "captcha",
             "spam"
         ]
+<<<<<<< HEAD
     },
     {
         "name": "topthink/think-captcha",
@@ -139,5 +144,7 @@
             "sdk",
             "storage"
         ]
+=======
+>>>>>>> origin/master
     }
 ]

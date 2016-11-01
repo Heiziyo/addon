@@ -4,8 +4,13 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "45f7608c08d208159ec276ba862597ea",
     "content-hash": "fb8e2d67a62f550fe210082c2b4eeb3f",
+=======
+    "hash": "da6778ec184cdae0ca75631f552181a8",
+    "content-hash": "4389e3003e6957af2cf9f87bf65335cc",
+>>>>>>> origin/master
     "packages": [
         {
             "name": "gregwar/captcha",
@@ -17,7 +22,11 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://packagist.phpcomposer.com/files/Gregwar/Captcha/1240ab993ca713680573b2d4166900da5f758623.zip",
+=======
+                "url": "https://api.github.com/repos/Gregwar/Captcha/zipball/1240ab993ca713680573b2d4166900da5f758623",
+>>>>>>> origin/master
                 "reference": "1240ab993ca713680573b2d4166900da5f758623",
                 "shasum": ""
             },
@@ -54,6 +63,7 @@
                 "spam"
             ],
             "time": "2015-09-11 15:23:20"
+<<<<<<< HEAD
         },
         {
             "name": "qiniu/php-sdk",
@@ -141,6 +151,8 @@
             ],
             "description": "captcha package for thinkphp5",
             "time": "2016-07-06 01:47:11"
+=======
+>>>>>>> origin/master
         }
     ],
     "packages-dev": [],
