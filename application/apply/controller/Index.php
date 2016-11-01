@@ -9,19 +9,13 @@ namespace app\apply\controller;
 use app\common\controller\Base;
 use think\Db;
 use OSS\OssClient;
-use think\Request;
-
 class Index extends Base{
 
-    function __construct(Request $request)
-    {
-        session_start();
-        parent::__construct($request);
-    }
 
     public function index(){
         $data = Db::table("app_addon")->paginate(5);/*dump($data);*/
         $this->assign('data',$data);
+
         return $this->view->fetch('index');
     }
 }
